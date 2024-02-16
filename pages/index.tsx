@@ -107,7 +107,7 @@ export default function Home(): JSX.Element {
               bg="bg-light-success text-success"
               title="Unique Authors"
               subtitle="Total Authors"
-              earning={uniqueAuthorsCount}
+              earning={uniqueAuthorsCount.toString()}
               icon="bi bi-person-circle"
             />
           </Col>
