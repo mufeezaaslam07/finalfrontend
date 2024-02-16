@@ -8,15 +8,24 @@ import {
   Button,
 } from "reactstrap";
 
+interface TableDataItem {
+  author: string;
+  language: string;
+  type: string;
+  participants_count: number;
+  domain_rank: number;
+  site_url: string;
+}
+
 const ProjectTables: React.FC = () => {
-  const [tableData, setTableData] = useState([]);
+  const [tableData, setTableData] = useState<TableDataItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
   useEffect(() => {
     fetch("https://finalbackend-seven.vercel.app/articles")
       .then((response) => response.json())
-      .then((data) => setTableData(data))
+      .then((data: TableDataItem[]) => setTableData(data))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
@@ -24,7 +33,7 @@ const ProjectTables: React.FC = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = tableData.slice(indexOfFirstItem, indexOfLastItem);
 
-  const handlePageChange = (pageNumber) => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
 
