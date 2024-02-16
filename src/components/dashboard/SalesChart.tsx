@@ -37,11 +37,11 @@ const ParticipantDomainChart: React.FC = () => {
 
   const series = [
     {
-      name: "Participant Count",
+      name: "Domain Rank",
       data: [0, 71, 40, 28, 31, 42, 108, 97],
     },
     {
-      name: "Domain Rank",
+      name: "Participant Count",
       data: [0, 11, 38, 45, 62, 34, 52, 41],
     },
   ];
