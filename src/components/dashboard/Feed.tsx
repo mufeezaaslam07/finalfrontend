@@ -9,8 +9,14 @@ import {
   Button,
 } from "reactstrap";
 
+interface Feed {
+  _id: string;
+  author: string;
+  published: string;
+}
+
 const Feeds = () => {
-  const [feeds, setFeeds] = useState([]);
+  const [feeds, setFeeds] = useState<Feed[]>([]); // Provide type information for the feeds state
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
@@ -25,7 +31,7 @@ const Feeds = () => {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = feeds.slice(indexOfFirstItem, indexOfLastItem);
 
-  const handlePageChange = (pageNumber: any) => {
+  const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
 
